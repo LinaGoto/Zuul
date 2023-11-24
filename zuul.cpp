@@ -4,14 +4,16 @@
 using namespace std;
 
 struct room_s{
-  bool exist;
+  int exist;
   int item;
+  int goal;
 }
 
 static char *itemlist[]= {
   "circle",
   "triangle",
   "star",
+  "square",
   "heart",
 }
 
@@ -23,8 +25,33 @@ struct positions_s{
 int main(){
   char inventory [10];
   char input [10];
-  book play = true;
+  bool play = true;
+  struct room_s room[7][5];
 
+  for(int i=0; i < 7; i++){
+    for (int j=0; j < 5; j++){
+      room[i][j].exist = 0;
+      room[i][j].item  = -1;
+      room[i][j].goal = 0;
+    }
+  }
+
+  for(int i = 1; i < 6; i++){
+    for (int j = 1; j < 4; j++){
+      room[i][j].exist = 1;
+      
+    }
+  }
+
+  room[6][2].exist = 1;
+  room[6][2].goal = 1;
+  room[1][1].item = 0;
+  room[5][1].item = 1;
+  room[3][2].item = 2;
+  room[2][3].item = 3;
+  room[4][5].item = 4;
+  
+  
   do{
     cout << "INVENTORY/MOVE/PICKUP/DROP" << endl;
 
