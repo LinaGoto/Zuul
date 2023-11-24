@@ -67,7 +67,7 @@ int main(){
 
     if (room[mypos.x][mypos.y].item >= 0){
       cout << "there is an " << itemlist[room[mypos.x][mypos.y].item]
-	   << "on the floor" << endl;
+	   << " on the floor" << endl;
     }
 
     if (room[mypos.x][mypos.y].item < 0){
@@ -98,12 +98,42 @@ int main(){
     if (input[0] == 'M' || input[0] == 'm'){
       cout << "Which direction would you like to move?" << endl;
       char move [10];
-      char.get(move, 10);
-      char.get;
+      cin.get(move, 10);
+      cin.get();
 
       if (move[0] == 'E' || move[0] == 'e'){
 	if(room[mypos.x + 1][mypos.y].exist == 1){
 	  mypos.x ++;
+	}
+	else{
+	  cout << "you cannot go east" << endl;
+	}
+      }
+
+      if (move[0] == 'W' || move[0] == 'w'){
+	if(room[mypos.x - 1][mypos.y].exist == 1){
+	  mypos.x --;
+	}
+	else{
+	  cout << "you cannot go west" << endl;
+	}
+      }
+      
+      if (move[0] == 'N' || move[0] == 'n'){
+	if(room[mypos.x][mypos.y + 1].exist == 1){
+	  mypos.y ++;
+	}
+	else{
+	  cout << "you cannot go north" << endl;
+	}
+      }
+      
+      if (move[0] == 'S' || move[0] == 's'){
+	if(room[mypos.x][mypos.y - 1].exist == 1){
+	  mypos.y --;
+	}
+	else{
+	  cout << "you cannot go south" << endl;
 	}
       }
       
@@ -111,9 +141,15 @@ int main(){
     
     //pick up
     if (input[0] == 'P' || input[0] == 'p'){
-      cout << "you had successfully picked up"
-	   << itemlist[room[mypos.x][mypos.y].item]
+
+
+	cout << "you had successfully picked up"
+      	   << itemlist[room[mypos.x][mypos.y].item]
 	   << "and had stored it into your inventory" << endl;
+      }
+
+      if(
+      
     }
     
     //drop
