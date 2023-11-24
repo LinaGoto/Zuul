@@ -7,20 +7,20 @@ struct room_s{
   int exist;
   int item;
   int goal;
-}
+};
 
-static char *itemlist[]= {
+static const char *itemlist[]= {
   "circle",
   "triangle",
   "star",
   "square",
   "heart",
-}
+};
 
 struct positions_s{
-  int x,y
+  int x,y;
   int num_items;
-}
+};
 
 int main(){
   char inventory [10];
@@ -51,6 +51,7 @@ int main(){
   room[2][3].item = 3;
   room[4][5].item = 4;
   
+#if 0
   
   do{
     cout << "INVENTORY/MOVE/PICKUP/DROP" << endl;
@@ -74,5 +75,7 @@ int main(){
     if (input[0] == 'D' || input[0] == 'd'){
       cout << "you could drop" << endl;
     }    
+#endif
 
+    return 0;
 }
