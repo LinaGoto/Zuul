@@ -29,6 +29,7 @@ int main(){
   bool play = true;
   struct room_s room[8][5];
   struct position_s mypos;
+  int count = 0;
 
   //initialize
   for(int i=0; i < 8; i++){
@@ -148,15 +149,46 @@ int main(){
     if (input[0] == 'P' || input[0] == 'p'){
 
 
-	cout << "you had successfully picked up"
-      	   << itemlist[room[mypos.x][mypos.y].item]
-	   << "and had stored it into your inventory" << endl;
+      if (room[mypos.x][mypos.y].item >= 0){
+	mypos.item[count] = room[mypos.x][mypos.y].item;
+	count ++;
+       room[mypos.x][mypos.y].item = -1;
+	cout << "you had successfully picked up the item and had stored it into your inventory" << endl;   
       }
+
+      else{
+	cout << "there is no item to be picked up" << endl;
+      }
+      
+    }
 
     
     //drop
-    if (input[0] == 'D' || input[0] == 'd'){
-      cout << "you could drop" << endl;
+    if(input[0] == 'D' || input[0] == 'd'){
+      cout << "what would you like to drop(enter number): ";
+      int counting = 0;
+      for(int i=0; i<7; i++){
+	if(mypos.item[i] != -1){
+	  cout << mypos.item[i] << "."<< itemlist[mypos.item[i]];
+	  counting ++;
+	}
+      }
+      if (counting == 0){
+	cout << "there is nothing in your inventory that you could drop" << endl;
+      }
+      if (counting > 0){
+	cout << endl;
+	char dropping [10];
+	cin.get (dropping, 10);
+	cin.get ();
+
+	for (int i=0; i<7; i++){
+	  if (mypos.item[i] == mypos.item[dropping]){
+	    mypos.item[i] == -1;
+	  }
+	}
+	
+      }
     }
     
   } while (play == true);
