@@ -20,6 +20,7 @@ static const char *itemlist[]= {
 struct position_s{
   int x,y;
   int num_item;
+  int item[6];
 };
 
 int main(){
@@ -58,6 +59,10 @@ int main(){
   mypos.x = 6;
   mypos.y = 2;
   mypos.num_item = 0;
+
+  for (int i=0; i<7; i++){
+    mypos.item[i] = -1;
+  }
 
   
   do{
@@ -148,9 +153,6 @@ int main(){
 	   << "and had stored it into your inventory" << endl;
       }
 
-      if(
-      
-    }
     
     //drop
     if (input[0] == 'D' || input[0] == 'd'){
