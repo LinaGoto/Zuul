@@ -1,3 +1,10 @@
+/*
+Lina Goto
+11/27/23
+play the game of zuul:
+collect all 5 items from the 15 rooms and bring it back to the starting point
+*/
+
 #include <iostream>
 #include <cstring>
 
